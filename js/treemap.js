@@ -118,7 +118,7 @@ function TreeMap() {
     canvas.style.width = width + "px"
     canvas.style.height = height + "px"
 
-    ctx.font = '8px Tahoma' // Tahoma Arial serif
+    ctx.font = '18px Tahoma' // Tahoma Arial serif
     ctx.textBaseline = 'top'
     ctx.textAlign = 'left'
     var metrics = ctx.measureText('M');
@@ -422,7 +422,12 @@ function TreeMap() {
   var _color_cache = new Map()
   function color_cache(x) {
     if (!_color_cache.has(x)) {
-      _color_cache.set(x, o(x))
+
+      // _color_cache.set(x, d3.rgb(Math.random() * 256,50,50))
+      _color_cache.set(0 * Math.floor(x/4 + 1), d3.rgb('#E0BE66'))
+      _color_cache.set(1 * Math.floor(x/4 + 1), d3.rgb('#D2B1D4'))
+      _color_cache.set(2 * Math.floor(x/4 + 1), d3.rgb('#95DF58'))
+      _color_cache.set(3 * Math.floor(x/4 + 1), d3.rgb('#95D9BB'))
     }
 
     return _color_cache.get(x)
